@@ -20,6 +20,13 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`. Opening `index.html` directly in a browser also works since everything is relative, self-contained, and loaded via `<script src>` / `<link>` (no ES modules, no bundler).
 
+## Deployment
+
+The site is served by GitHub Pages from the `gh-pages` branch at
+https://natanielbuko-droid.github.io/fantastic-bassoon/. On every push to `main`,
+`.github/workflows/pages.yml` force-pushes `main` to `gh-pages` — never commit to
+`gh-pages` directly, it gets overwritten.
+
 ## Architecture
 
 `script.js` implements a small state machine for calculator input, holding three pieces of state at module scope:
