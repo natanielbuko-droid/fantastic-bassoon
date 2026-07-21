@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prosty kalkulator webowy — dodawanie, odejmowanie, mnożenie, dzielenie, procenty. Działa na telefonie i komputerze." />
+  <meta name="theme-color" content="#1b1d22" />
+  <title>Kalkulator</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calculator">
+    <div class="display">
+      <div class="display-expression" id="expression"></div>
+      <div class="display-current" id="current">0</div>
+    </div>
+    <div class="keys">
+      <button class="key key-op" data-action="clear">C</button>
+      <button class="key key-op" data-action="backspace">⌫</button>
+      <button class="key key-op" data-action="percent">%</button>
+      <button class="key key-op" data-value="/">÷</button>
+
+      <button class="key" data-value="7">7</button>
+      <button class="key" data-value="8">8</button>
+      <button class="key" data-value="9">9</button>
+      <button class="key key-op" data-value="*">×</button>
+
+      <button class="key" data-value="4">4</button>
+      <button class="key" data-value="5">5</button>
+      <button class="key" data-value="6">6</button>
+      <button class="key key-op" data-value="-">−</button>
+
+      <button class="key" data-value="1">1</button>
+      <button class="key" data-value="2">2</button>
+      <button class="key" data-value="3">3</button>
+      <button class="key key-op" data-value="+">+</button>
+
+      <button class="key key-zero" data-value="0">0</button>
+      <button class="key" data-action="decimal">,</button>
+      <button class="key key-equals" data-action="equals">=</button>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <a href="grawiton-deluxe/">🎮 Zagraj w GRAWITON Deluxe</a>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

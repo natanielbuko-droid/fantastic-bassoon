@@ -1,0 +1,127 @@
+:root {
+  --bg: #1b1d22;
+  --calc-bg: #23262e;
+  --display-bg: #14161a;
+  --key-bg: #2e323c;
+  --key-hover: #3a3f4b;
+  --key-op-bg: #3d4a6b;
+  --key-op-hover: #4c5c85;
+  --key-equals-bg: #ff9f43;
+  --key-equals-hover: #ffb066;
+  --text: #f2f3f5;
+  --text-dim: #8b90a0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.calculator {
+  width: min(360px, 92vw);
+  background: var(--calc-bg);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.display {
+  background: var(--display-bg);
+  border-radius: 14px;
+  padding: 20px 18px 14px;
+  margin-bottom: 18px;
+  text-align: right;
+  overflow: hidden;
+}
+
+.display-expression {
+  min-height: 20px;
+  color: var(--text-dim);
+  font-size: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.display-current {
+  color: var(--text);
+  font-size: 2.6rem;
+  font-weight: 600;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  border: none;
+  border-radius: 12px;
+  background: var(--key-bg);
+  color: var(--text);
+  font-size: 1.25rem;
+  padding: 18px 0;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.05s ease;
+}
+
+.key:hover {
+  background: var(--key-hover);
+}
+
+.key:active {
+  transform: scale(0.96);
+}
+
+.key-op {
+  background: var(--key-op-bg);
+}
+
+.key-op:hover {
+  background: var(--key-op-hover);
+}
+
+.key-equals {
+  background: var(--key-equals-bg);
+  color: #1b1d22;
+  font-weight: 700;
+}
+
+.key-equals:hover {
+  background: var(--key-equals-hover);
+}
+
+.key-zero {
+  grid-column: span 2;
+}
+
+body {
+  flex-direction: column;
+  gap: 18px;
+}
+
+.site-footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 15px;
+  padding: 8px 14px;
+  border: 1px solid var(--key-bg);
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-footer a:hover {
+  color: var(--text);
+  border-color: var(--key-op-hover);
+}
