@@ -17,4 +17,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: git push origin HEAD:gh-pages --force
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: grawiton-deluxe/package-lock.json
+
+      - name: Build GRAWITON Deluxe
+        working-directory: grawiton-deluxe
+        run: |
+          npm ci
+          npm run build
+
+      - name: Assemble site (kalkulator + gra)
+        run: |
+          mkdir -p _site/grawiton-deluxe
+          cp index.html style.css script.js _site/
+          cp -r grawiton-deluxe/dist/. _site/grawiton-deluxe/
+
+      - name: Deploy to gh-pages
+        run: |
+          cd _site
+          git init -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy site from ${{ github.sha }}"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
